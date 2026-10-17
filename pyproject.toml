@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ultimate-lufs-equalizer"
+version = "0.1.0"
+description = "Normaliza los tracks de un set de DJ al mismo volumen (LUFS) a partir de la playlist de tu software."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "PySide6>=6.6",
+    "imageio-ffmpeg>=0.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyinstaller>=6.6"]
+
+[project.scripts]
+lufs-equalizer = "lufs_equalizer.cli:main"
+
+[project.gui-scripts]
+lufs-equalizer-gui = "lufs_equalizer.gui.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
