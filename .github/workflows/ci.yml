@@ -35,7 +35,16 @@ jobs:
       - name: Comprobar que ffmpeg va dentro
         shell: bash
         run: find dist -iname "ffmpeg*" | grep -q .
+      # Los artifacts de GitHub pierden los permisos de ejecución, así que la app
+      # se empaqueta antes en un zip que los conserva.
+      - name: Empaquetar (macOS)
+        if: runner.os == 'macOS'
+        run: ditto -c -k --keepParent "dist/Ultimate LUFS Equalizer.app" UltimateLUFSEqualizer-macOS.zip
+      - name: Empaquetar (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: Compress-Archive -Path "dist/Ultimate LUFS Equalizer" -DestinationPath UltimateLUFSEqualizer-Windows.zip
       - uses: actions/upload-artifact@v4
         with:
           name: UltimateLUFSEqualizer-${{ runner.os }}
-          path: dist/
+          path: UltimateLUFSEqualizer-${{ runner.os }}.zip
