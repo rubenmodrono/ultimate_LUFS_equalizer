@@ -41,7 +41,8 @@ Cada cambio en `main` compila la app para **Windows** y **macOS** en GitHub Acti
 (pestaña *Actions* → último run → *Artifacts*). ffmpeg va incluido; no hay que instalar nada.
 
 - **Windows**: descomprime `UltimateLUFSEqualizer-Windows` y abre `Ultimate LUFS Equalizer.exe`.
-- **macOS** (Apple Silicon, M1 o posterior): descomprime `UltimateLUFSEqualizer-macOS` hasta tener
+- **macOS**: descarga `UltimateLUFSEqualizer-macOS-AppleSilicon` (M1 o posterior) o
+  `UltimateLUFSEqualizer-macOS-Intel`, según tu Mac (menú Apple → *Acerca de este Mac*). Descomprímelo hasta tener
   `Ultimate LUFS Equalizer.app` y muévela a *Aplicaciones*. La app no está firmada, así que la
   primera vez macOS la bloquea: ábrela, cierra el aviso y ve a *Ajustes del Sistema → Privacidad
   y seguridad → Abrir igualmente*. También puedes quitar el bloqueo desde Terminal:
